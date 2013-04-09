@@ -1,0 +1,13 @@
+
+Run:
+  # Create of images that are in the laustracker/testdata/calibrate_aoi/ folder
+  # as image_list.txt
+  calibrate]$ ls -d -1 $PWD/../../testdata/calibrate_aoi/*.* >image_list.txt
+
+  # Create the intrinsics.xml file, the values 10 and 6 specify the size
+  # of the chessboard
+  calibrate]$ ../../bin/laustracker-calibrate 10 6 image_list.txt intrinsics_new_cam_aoi.xml
+
+  # Override the default liblaustracker intrinsics.xml file
+  calibrate]$ cp intrinsics_new_cam_aoi.xml  ../../share/laustracker/intrinsics.xml
+

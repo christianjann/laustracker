@@ -1,0 +1,10 @@
+libueyecam:
+
+  The directory libueyecam is a current SVN snapshot of libueyecam.
+
+  Build and install:
+
+    cd libueyecam
+    make
+    make install
+

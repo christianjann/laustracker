@@ -1,0 +1,6 @@
+ 
+- console application to undistort a image
+
+- run:
+
+       ../../bin/laustracker-undistort ./../calibrate/intrinsics_new_cam_aoi.xml image1.jpg image1_out.png

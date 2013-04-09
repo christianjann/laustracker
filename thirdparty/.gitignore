@@ -1,0 +1,6 @@
+*.svn*
+libueyecam/debian/*
+libueyecam/lib/*
+libueyecam/bin/*
+libueyecam/README
+libueyecam/examples/*

@@ -1,0 +1,13 @@
+.directory
+*.orig
+*~
+*.kdev4
+.kdev4
+build/
+*.backup
+*.note
+*.pyc
+*.prof
+*.prof_*
+*.callgrind
+

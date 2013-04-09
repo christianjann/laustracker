@@ -1,0 +1,10 @@
+string name
+Idx field_idx
+int8 direction
+float32 angle
+Pos relative_pos
+bool third_led_found
+float32 ratio
+float32 dist_blue_white
+float32 dist_red_white
+Pos absolut_pos_cm

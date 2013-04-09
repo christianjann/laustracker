@@ -1,0 +1,38 @@
+#! /bin/bash
+if [ ! -d ./build ]; then mkdir ./build; fi;
+(cd build >/dev/null 2>&1 && cmake .. "$@")
+
+ROS="export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:${PWD}/ros"
+
+if grep -Fxq "$ROS" ~/.bashrc
+then
+    echo "Directory laustracker/ros is allredy added to ROS_PACKAGE_PATH in ~/.bashrc"
+else
+    echo "Directory laustracker has been added to ROS_PACKAGE_PATH in ~/.bashrc"
+    echo "export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:${PWD}/ros" >> ~/.bashrc
+    echo "now you should run: source ~/.bashrc"
+fi
+
+LAUSTRACKER="export LAUSTRACKER_PATH=${PWD}"
+if grep -Fxq "$LAUSTRACKER" ~/.bashrc
+then
+    echo "LAUSTRACKER_PATH is allredy set to ${PWD} in ~/.bashrc"
+else
+    echo "LAUSTRACKER_PATH has been set to ${PWD} in ~/.bashrc"
+    echo "export LAUSTRACKER_PATH=${PWD}" >> ~/.bashrc
+    echo "now you should run: source ~/.bashrc"
+fi
+
+ROS_DEVEL="if [ -f ${PWD}/ros/devel/setup.sh ] ; then source ${PWD}/ros/devel/setup.sh; fi"
+if grep -Fxq "$ROS_DEVEL" ~/.bashrc
+then
+    echo "ROS devel directory is allredy added to ~/.bashrc"
+else
+    echo "Added ROS devel directory to ~/.bashrc"
+    echo $ROS_DEVEL >> ~/.bashrc
+fi
+
+mkdir ~/.laustracker
+cp -v testdata/map.txt ~/.laustracker/map.txt
+cp -v testdata/labyrinth_pos.txt ~/.laustracker/labyrinth_pos.txt
+

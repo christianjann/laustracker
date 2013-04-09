@@ -1,0 +1,93 @@
+To compile the ROS programs you will need to have ROS installed,
+a guide for Fedora is located here:
+
+  http://www.ros.org/wiki/groovy/Installation/Fedora
+
+and for Ubuntu:
+
+  http://www.ros.org/wiki/groovy/Installation/Ubuntu
+
+For a introduction to ROS:
+
+  http://www.ros.org/wiki/ROS/Tutorials
+  https://twiki.tu-chemnitz.de/bin/view/Prat/ROS
+
+This directory should be added to the $PATH variable, so that ROS will find it:
+
+  laustracker/ros]$ echo "export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:${PWD}" >> ~/.bashrc
+  laustracker/ros]$ rospack profile
+  laustracker/ros]$ rospack find laustracker3d
+
+And to use rosrun:
+
+  laustracker/ros]$ echo "if [ -f ${PWD}/devel/setup.sh ] ; then source ${PWD}/devel/setup.sh; fi" >> ~/.bashrc
+
+To compile everything run catkin_make:
+
+  laustracker/src/ros]$ catkin_make
+
+or just make:
+
+  laustracker/ros]$ make
+
+To delete all generated files run make distclean:
+
+  laustracker/ros]$ make distclean
+
+Before you can use ROS programs you need to start roscore:
+
+  $ roscore
+
+Then you can start the Laustracker server:
+
+  with two test images:
+
+    $ rosrun ltserver laustrackerd --robots-img=${LAUSTRACKER_PATH}/testdata/aoi_robots_dark.jpg \
+        --walls-img=${LAUSTRACKER_PATH}/testdata/aoi_labyrinth_empty.jpg
+
+  with walls image and robots video:
+
+    $ rosrun ltserver laustrackerd --walls-img=${LAUSTRACKER_PATH}/testdata/aoi_labyrinth_empty.jpg \
+        --robots-vid=${LAUSTRACKER_PATH}/testdata/robotsvideo.avi --fast --fps=20
+
+  live mode with local camera:
+
+    $ rosrun ltserver laustrackerd
+
+  live mode with camnode:
+
+    $ rosrun ltcamnode laustracker-camnode
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera
+
+    $ rosrun ltcamnode laustracker-camnode --fps=15
+
+  automatice mode:
+
+    $ rosrun ltserver laustrackerd --auto
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --auto
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --fast --auto --headless
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --fast --auto --reddots
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --fast --auto --load
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --fast --auto --load --headless
+
+Now you can start some clients to display the map:
+
+  $ rosrun laustracker2d laustracker2d.py
+  $ rosrun laustracker3d laustracker3d
+
+Publish the position of the robot named Pete via XBee:
+
+  $ rosrun ltxbee ltxbee.py -r Andi
+  $ rosrun ltxbee ltxbee.py -r Pete -p /dev/ttyUSB1
+  $ rosrun ltxbee ltxbee-min.py
+
+Some tests:
+
+  $ rosrun ltserver laustrackerd --camera-node ueye-camera --no-wrap --fast --debuglevel=5
+
+  $ rosrun ltserver laustrackerd --robots-img=${LAUSTRACKER_PATH}/testdata/aoi_robots_not_so_dark.jpg \
+        --walls-img=${LAUSTRACKER_PATH}/testdata/aoi_labyrinth_empty.jpg
+
+  $ rosrun ltserver laustrackerd --robots-img=${LAUSTRACKER_PATH}/testdata/aoi_robots_dark.jpg --load
+
+

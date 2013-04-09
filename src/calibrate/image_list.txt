@@ -1,0 +1,10 @@
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/camera_info.txt
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image1.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image2.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image3.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image4.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image5.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image6.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image7.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image8.jpg
+/home/chris/data/Uni/Projects/laustracker.git/laustracker/src/calibrate/../../testdata/calibrate_aoi/image9.jpg

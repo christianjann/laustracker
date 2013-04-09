@@ -1,0 +1,23 @@
+<package>
+  <name>ltxbee</name>
+  <version>1.0.0</version>
+  <description>
+    Laustracker XBee Node
+  </description>
+  <maintainer email="christian.jann@ymail.com">Christian Jann</maintainer>
+  <license>GPLv3</license>
+  <url>http://www.jann.cc/2013/02/17/laustracker.html</url>
+
+  <author email="christian.jann@ymail.com">Christian Jann</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>ltserver</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>ltserver</run_depend>
+
+</package>

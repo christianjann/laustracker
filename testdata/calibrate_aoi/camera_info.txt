@@ -1,0 +1,3 @@
+
+camera: UI-1246LE-C-HQ
+objective: BF2M2020

@@ -1,0 +1,37 @@
+Test if linking the system wide liblaustracker library works.
+
+compile:
+  mkdir build
+  cd build
+  cmake ..
+  make
+
+If the cmake command fails with the following error message then liblaustracker
+is probably not installed:
+
+  CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+  Please set them or make sure they are set and tested correctly in the CMake files:
+  LAUSTRACKER_LIBRARY
+      linked by target "system_library" in directory /home/...
+
+  -- Configuring incomplete, errors occurred!
+
+Then just install liblaustracker:
+
+  cd ../../
+  ./configure
+  make
+  sudo make install
+
+
+To see which liblaustracker.so gets used run the following command:
+
+  ldd build/system_library |grep laustracker
+
+If the cmake command fails with the following error message then libueyecam
+is probably not installed:
+
+  CMake Error at cmake/FindUEyeCam.cmake:43 (message):
+    could not find libueyecam.so
+  Call Stack (most recent call first):
+    CMakeLists.txt:9 (find_package)

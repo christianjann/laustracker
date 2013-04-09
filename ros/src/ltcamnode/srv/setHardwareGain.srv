@@ -1,0 +1,6 @@
+int8 nMaster
+int8 nRed
+int8 nGreen
+int8 nBlue
+---
+bool ret

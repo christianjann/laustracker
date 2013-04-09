@@ -1,0 +1,6 @@
+ 
+- console application to save a camera stream
+
+- run:
+
+       ../../bin/laustracker-video-record robotsvideo.avi

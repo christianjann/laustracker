@@ -1,0 +1,69 @@
+Test is with some images from your hard dive:
+
+  automatically locate the labyrinth:
+
+    ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_empty.jpg
+
+  manually select the labyrinth position:
+
+    ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_empty.jpg --manual
+
+  locate the labyrinth via red markers at the corners:
+
+    ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_red_dots.jpg --reddots
+
+
+  Display intermediate debug images:
+
+    ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_empty.jpg --debug
+
+  Show the help:
+
+    ../../bin/laustracker-cli --help
+
+  Search the image for robots:
+
+    ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg
+
+
+  Locate walls and robots:
+
+    ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg \
+              --walls-img=../../testdata/aoi_labyrinth_empty.jpg
+
+
+  Locate walls and robots (use a mask for the walls):
+
+    ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg \
+            --walls-img=../../testdata/aoi_labyrinth_empty.jpg --mask
+
+Live mode from the camera:
+
+  ../../bin/laustracker-cli
+
+You can also mix different options, e.g:
+
+  ../../bin/laustracker-cli --debug
+
+
+Some tests:
+
+  ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_with_robots.jpg --reddots --debug
+
+  ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_with_robot_at_wall_position.jpg --reddots --debug
+
+  ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_with_robots_and_buoys.jpg --reddots --debug --mask
+
+  ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_with_robots_leds_on.jpg --reddots --debug
+
+  ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_not_so_dark.jpg --debug
+
+  ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_not_so_dark.jpg --walls-img=../../testdata/aoi_labyrinth_empty.jpg --debug
+
+  ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg --walls-img=../../testdata/aoi_labyrinth_empty.jpg --debuglevel=5
+
+  ../../bin/laustracker-cli --debuglevel=5
+
+  ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg --walls-img=../../testdata/aoi_labyrinth_empty.jpg --benchmark --fast --no-wrap
+
+
