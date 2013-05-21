@@ -66,4 +66,4 @@ Some tests:
 
   ../../bin/laustracker-cli --robots-img=../../testdata/aoi_robots_dark.jpg --walls-img=../../testdata/aoi_labyrinth_empty.jpg --benchmark --fast --no-wrap
 
-
+  ../../bin/laustracker-cli --walls-img=../../testdata/aoi_labyrinth_bad_light.jpg --manual --debug

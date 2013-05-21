@@ -223,7 +223,7 @@ void LausTracker::locate_walls(Mat& image)
 {
     if (labyrinth_found)
     {
-        Mat white_img;
+        Mat white_img, blue_img;
 #ifdef OLD_WHITE
         white_regions(image, white_img, 90);
 #else
@@ -255,9 +255,35 @@ void LausTracker::locate_walls(Mat& image)
 
         cvtColor(image, white_img, CV_BGR2HSV);
         inRange(white_img, whitemin, whitemax, white_img);
+
+#define REMOVE_BLUE
+#ifdef REMOVE_BLUE
+        cvtColor(image, blue_img, CV_BGR2HSV);
+        Scalar bluemin, bluemax;
+        
+        vector<int> gbmin =
+            to_array<int>(labyrinth_conf.get<std::string>("walls.hsv_bluemin"));
+        vector<int> gbmax =
+            to_array<int>(labyrinth_conf.get<std::string>("walls.hsv_bluemax"));
+
+        bluemin = Scalar(gbmin[0] * (179.0 / 360),
+                          gbmin[1] * (255.0 / 100),
+                          gbmin[2] * (255.0 / 100));
+        bluemax = Scalar(gbmax[0] * (179.0 / 360),
+                          gbmax[1] * (255.0 / 100),
+                          gbmax[2] * (255.0 / 100));
+        
+        inRange(blue_img, bluemin, bluemax, blue_img);
+        
+        if (debuglevel > 3)laustracker_imshow("white_regins", white_img);
+        if (debuglevel > 3)laustracker_imshow("blue_regins", blue_img);
+        bitwise_not(blue_img, white_img, white_img);
+#endif
+
 #endif
         if (debuglevel > 3)laustracker_imshow("white_regins_for_walls", white_img);
-        edm(white_img, white_img, 1, 3, 5);
+        edm(white_img, white_img, 2, 3, 13);
+        edm(white_img, white_img, 0, 5, 0);
 
         if (debuglevel > 3)laustracker_imshow("white_regins_for_walls_after_edm", white_img);
         cvtColor(white_img, white_img, CV_GRAY2BGR);
