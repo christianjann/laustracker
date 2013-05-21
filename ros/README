@@ -57,7 +57,7 @@ Then you can start the Laustracker server:
   live mode with camnode:
 
     $ rosrun ltcamnode laustracker-camnode
-    $ rosrun ltserver laustrackerd --camera-node ueye-camera
+    $ rosrun ltserver laustrackerd --camera-node ueye-camera --fast
 
     $ rosrun ltcamnode laustracker-camnode --fps=15
 
